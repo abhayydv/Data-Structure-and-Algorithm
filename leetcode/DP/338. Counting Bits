@@ -1,32 +1,16 @@
 class Solution {
-    public int[] countBits(int n) {
+    public static int[] countBits(int n) {
         int arr[] = new int[n+1];
-        
-        for(int i = 0; i<n+1; i++){
-            arr[i] = -1;
-        }
-        for(int i = 0; i<=n; i++){
-            if(arr[(i >> 1)] != -1){
-                if((i & 1) == 1){
-                     arr[i] = arr[(i >> 1)] + 1;
-                }else{
-                     arr[i] = arr[(i >> 1)];
-                }
-            }else{
-                arr[i] = bit(i);
-            }
-        }
-        return arr;
-    }
-    public int bit(int num){
-        int count = 0;
-        while(num > 0){
-            if((num & 1) == 1){
-                count++;
-            }
-            num = num >> 1;
+        arr[0] = 0;
+        for(int i = 1; i<=n; i++){           
+                // if((i & 1) == 1){
+                //      arr[i] = arr[(i >> 1)] + 1;
+                // }else{
+                //      arr[i] = arr[(i >> 1)];
+                // }
+                arr[i] = arr[i >> 1] + (i & 1);
         }
 
-        return count;
+        return arr;
     }
 }
