@@ -1,0 +1,34 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+ 
+public class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc = new Scanner(System.in);
+		
+		int t = sc.nextInt();
+		
+		while(t-- > 0){
+		    Long s = sc.nextLong();
+		    Long val = s;
+		    
+		    int count = 0;
+		    
+		    while(val > 9){
+		        
+		        int mod = (int)(val%10);
+		        
+		        Long div = val/10;
+		        
+		        val = mod+div;
+		        count += div;
+		    }
+		    
+		    System.out.println(s+count);
+		}
+ 
+	}
+}
