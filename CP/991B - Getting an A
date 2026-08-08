@@ -1,0 +1,39 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc = new Scanner(System.in);
+		
+		int n = sc.nextInt();
+
+		int arr[] = new int[n];
+		double sum1 = 0.0;
+		    for(int i = 0; i<n; i++){
+		        arr[i] = sc.nextInt();
+		        sum1 += arr[i];
+		    }
+		    
+		    
+		    if(sum1/n >= 4.5){
+		        System.out.println(0);
+		    }else{
+		        Arrays.sort(arr);
+    		    int count = 0;
+    		    for(int i = 0; i<n; i++){
+    		        count++;
+    		        int val = 5 - arr[i];
+    		        sum1 += val;
+    		        if(sum1/n >= 4.5){
+    		            System.out.println(count);
+    		            return;
+    		        }
+    		    }
+    		    System.out.println(count);
+		    }    
+	}
+}
