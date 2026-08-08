@@ -1,0 +1,27 @@
+class Solution {
+    public int smallestNumber(int n, int t) {
+
+        int ans = -1;
+
+        for(int i = n; ; i++){
+            if(check(i,t)){
+                ans = i;
+                break;
+            }
+        }        
+
+        return ans;
+    }
+
+    private boolean check(int num,int t){
+        int digit = 1;
+
+        while(num > 0){
+            int ld = num%10;
+            digit *= ld;
+            num /= 10;
+        }
+
+        return digit % t == 0;
+    }
+}
